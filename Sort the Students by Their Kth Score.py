@@ -31,3 +31,19 @@ Output: [[5,6],[3,4]]
 Explanation: In the above diagram, S denotes the student, while E denotes the exam.
 - The student with index 1 scored 5 in exam 0, which is the highest score, so they got first place.
 - The student with index 0 scored 3 in exam 0, which is the lowest score, so they got second place.
+
+import operator 
+class Solution:
+    def sortTheStudents(self, score: List[List[int]], k: int) -> List[List[int]]:
+        d = {} # or dict()
+        temp = list() # list to hold result
+        # temp_dict to hold sorted dictionary
+
+        for i in range(0, len(score)):
+            d[score[i][k]] = score[i]
+
+        temp_dict = sorted(d.items(),key=operator.itemgetter(0),reverse=True)
+
+        for k in range (0, len(temp_dict)):
+            temp.append(temp_dict[k][1])
+        return temp
