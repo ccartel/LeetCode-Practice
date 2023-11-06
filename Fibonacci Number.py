@@ -5,7 +5,6 @@ class Solution:
         elif n == 1:
             return 1
         else:
-
             dp = [0] * n
             dp[0] = 0
             dp[1] = 1
